@@ -21,7 +21,6 @@ struct Screen_2: View {
                 Text("Save your first \nbookmark")
                     .font(.system(size: 36, weight: .bold))
                     .multilineTextAlignment( .center)
-//                    .padding([.leading, .trailing], 16)
                     .frame(width: 358, height: 92 )
                     
 

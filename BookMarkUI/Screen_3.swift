@@ -9,116 +9,69 @@ import SwiftUI
 
 struct Screen_3: View {
     var body: some View {
-        ZStack{
-            Color.white.ignoresSafeArea()
-
-            VStack{
+        ZStack {
+            HStack{
                 Text("Bookmark App")
-                    .frame(width: 130, height: 22, alignment: .center)
                     .font(.system(size: 17, weight: .bold))
-
-
-                Spacer()
-                Text("Save your first \nbookmark")
-                    .font(.system(size: 36, weight: .bold))
-                    .multilineTextAlignment( .center)
-                    .frame(width: 358, height: 92 )
-
-
-
-
-                Spacer()
-                CustomButton(tittle: "Add bookmark", colorBaground: Color.black, colorText: Color.white)
-                
+                    .padding(.bottom, 730)
             }
-            Rectangle()
-                .ignoresSafeArea()
-                .opacity(0.25)
+            Text("Save your first \nbookmark")
+                .font(.system(size: 36, weight: .bold)).multilineTextAlignment(.center)
             
-            VStack{
-                Spacer()
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 20)
-//
-//                        .frame(width: 390, height: 362, alignment: .bottom)
-//                        .edgesIgnoringSafeArea(.bottom)
-//                        .foregroundColor(Color.white)
-//                        .padding(.top, 70)
-////                        .padding(.top, 428)
-////                        .fill(Color.white)
-//
-//
-//                    VStack{
-//                        HStack{
-//                            Spacer()
-//                            Image("Vector")
-//
-//                                .resizable()
-//                                .frame(width: 12.01, height: 12.01)
-//                                .padding([.trailing],  22)
-//                        }
-//                        Text("Title")
-//                            .frame(width: 358, height: 22, alignment: .leading)
-//                            .font(.system(size: 17))
-//                        TextField("Bookmark title", text: .constant(""))
-//                            .frame(width: 358, height: 46)
-//
-//
-////                            .padding([.leading, .trailing], 16)
-//
-//                        Text("Link")
-//                            .frame(width: 358, height: 22, alignment: .leading)
-//                            .font(.system(size: 17))
-//                        TextField("Bookmark link (URL)", text: .constant(""))
-//                            .frame(width: 358, height: 46)
-//                        CustomButton(tittle: "Save", colorBaground: Color.black, colorText: Color.white)
-//
-//
-//
-//
-//                    }
-//                    .padding(.top, 56)
-//
-//                }
-                ZStack{
-                    Rectangle()
-                        .edgesIgnoringSafeArea(.bottom)
-                        .foregroundColor(Color.white)
-                        .frame(height: 360)
-                        .cornerRadius(19)
-                    VStack{
-                        HStack{
-                            Spacer()
-                            Image("Vector")
-                            
-                                .resizable()
-                                .frame(width: 12.01, height: 12.01)
-                                .padding([.trailing],  22)
-                        }
-                        Text("Title")
-                            .frame(width: 358, height: 22, alignment: .leading)
-                            .font(.system(size: 17))
-                        TextField("Bookmark title", text: .constant(""))
-                            .frame(width: 358, height: 46)
-                        Text("Link")
-                            .frame(width: 358, height: 22, alignment: .leading)
-                            .font(.system(size: 17))
-                        TextField("Bookmark link (URL)", text: .constant(""))
-                            .frame(width: 358, height: 46)
-                        CustomButton(tittle: "Save", colorBaground: Color.black, colorText: Color.white)
-                        
-                        
+            diming
+            bottomSheet
+        }
+        .edgesIgnoringSafeArea(.all)
+        
+    }
+    
+    var diming: some View {
+        Color.black.opacity(0.2)
+    }
+    
+    var bottomSheet: some View {
+        VStack{
+            Spacer()
+            ZStack{
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.white)
+                VStack {
+                    HStack{
+                        Spacer()
+                        Image("Vector")
                     }
-                        
+                    TextForField(text: "Title", textForField: "Bookmark title")
+                   TextForField(text: "Link", textForField: "Bookmark link URL")
+                    CustomButton(tittle: "Save", colorBaground: Color.black, colorText: Color.white)
+                        .padding(.top, 24)
+                    
                 }
+                .padding(16)
+                
+                
                 
             }
-            
-            
+            .frame(height:362)
             
         }
-        
-        
+    }
+    
+}
+
+
+struct TextForField: View {
+    var text: String
+    var textForField: String
+    var body: some View {
+        VStack {
+            HStack {
+                Text(text)
+                Spacer()
+            }
+            TextField(textForField, text: .constant(""))
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 16).fill(Color.gray).opacity(0.2))
+        }
     }
 }
 

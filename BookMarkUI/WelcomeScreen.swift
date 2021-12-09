@@ -20,8 +20,6 @@ struct WelcomeScreen: View {
 
             }
         }
-        
-//        .frame(width: 319, height: 600)
     }
     
     var imageForScreen: some View {
